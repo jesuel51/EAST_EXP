@@ -1,0 +1,74 @@
+# this script is plot the experimental and predicted gradient
+tgyro_grad = root['OUTPUTS']['TGYRO']['out.tgyro.gradient']['data']
+tgyro_geo = root['OUTPUTS']['TGYRO']['out.tgyro.geometry.1']['data']
+p_tgyro = len(root['INPUTS']['TGYRO']['input.tgyro']['DIR'])
+# experimenta gradient
+rmin        = tgyro_grad['r/a'][0:p_tgyro+1]
+rho         = tgyro_geo['col2'][0:p_tgyro+1]
+grad_ne_exp = tgyro_grad['a/Lne'][0:p_tgyro+1]
+grad_Te_exp = tgyro_grad['a/LTe'][0:p_tgyro+1]
+grad_Ti_exp = tgyro_grad['a/LTi'][0:p_tgyro+1]
+grad_w0_exp = tgyro_grad['a*gamma_e/cs'][0:p_tgyro+1]
+# predicted gradient
+grad_ne_cal = tgyro_grad['a/Lne'][-p_tgyro-1:]
+grad_Te_cal = tgyro_grad['a/LTe'][-p_tgyro-1:]
+grad_Ti_cal = tgyro_grad['a/LTi'][-p_tgyro-1:]
+grad_w0_cal = tgyro_grad['a*gamma_e/cs'][-p_tgyro-1:]
+# write it to the root['SETTINGS']['TEMP']
+TEMP=root['SETTINGS']['TEMP']
+TEMP['a/Lne-exp']=grad_ne_exp
+TEMP['a/LTe-exp']=grad_Te_exp
+TEMP['a/LTi-exp']=grad_Ti_exp
+TEMP['a/Lne-sim']=grad_ne_cal
+TEMP['a/LTe-sim']=grad_Te_cal
+TEMP['a/LTi-sim']=grad_Ti_cal
+# plot
+figure(figsize=[10,10])
+lw = 2
+ms = 8
+fs1 = 20
+fs2 = 24
+subplot(2,2,1)
+plot(rho, grad_Te_exp,'-ro',linewidth=lw,markersize=ms,label='exp')
+plot(rho, grad_Te_cal,'-bo',linewidth=lw,markersize=ms,label='simu')
+#xlabel('$r_{min}$',fontsize=fs2,family='serif')
+title('$a/L_{Te}$',fontsize=fs2,family='serif')
+xticks(fontsize=fs1,family='serif')
+yticks(fontsize=fs1,family='serif')
+#    ylim([0,10])
+#ylim([0,int(max(array(grad_Te_exp))+2)])
+#text(xtext,9,'(e)',fontsize=fs3)
+legend(loc=0,fontsize=fs1).draggable(True)
+subplot(2,2,2)
+plot(rho, grad_Ti_exp,'-ro',linewidth=lw,markersize=ms)
+plot(rho, grad_Ti_cal,'-bo',linewidth=lw,markersize=ms)
+#xlabel('$r_{min}$',fontsize=fs2,family='serif')
+title('$a/L_{Ti}$',fontsize=fs2,family='serif')
+xticks(fontsize=fs1,family='serif')
+yticks(fontsize=fs1,family='serif')
+#    ylim([0,10])
+#ylim([0,int(max(array(grad_Ti_exp))+2)])
+#text(xtext,9,'(e)',fontsize=fs3)
+#legend(loc=0,fontsize=fs1).draggable(True)
+subplot(2,2,3)
+plot(rho, grad_ne_exp,'-ro',linewidth=lw,markersize=ms)
+plot(rho, grad_ne_cal,'-bo',linewidth=lw,markersize=ms)
+xlabel('$\\rho$',fontsize=fs2,family='serif')
+title('$a/L_{ne}$',fontsize=fs2,family='serif')
+xticks(fontsize=fs1,family='serif')
+yticks(fontsize=fs1,family='serif')
+#    ylim([0,10])
+#ylim([0,int(max(array(grad_ne_exp))+1)])
+#text(xtext,9,'(e)',fontsize=fs3)
+#legend(loc=0,fontsize=fs1).draggable(True)
+subplot(2,2,4)
+plot(rho, grad_w0_exp,'-ro',linewidth=lw,markersize=ms,label='exp')
+plot(rho, grad_w0_cal,'-bo',linewidth=lw,markersize=ms,label='simu')
+xlabel('$\\rho$',fontsize=fs2,family='serif')
+title('$\gamma_E$',fontsize=fs2,family='serif')
+xticks(fontsize=fs1,family='serif')
+yticks(fontsize=fs1,family='serif')
+#    ylim([0,10])
+#ylim([0,int(max(array(grad_w0_exp))+2)])
+#text(xtext,9,'(e)',fontsize=fs3)
+#legend(loc=0,fontsize=fs1).draggable(True)

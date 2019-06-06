@@ -1,0 +1,53 @@
+#-*-Python-*-
+# Created by xiangjian at 2015/05/04 21:32
+inputtgyro=root['INPUTS']['TGYRO']['input.tgyro']
+tgyro_max=inputtgyro['TGYRO_RMAX']
+#p_tgyro=root['SETTINGS']['PHYSICS']['p_tgyro']
+p_tgyro=len(inputtgyro['DIR'])
+profile=root['OUTPUTS']['TGYRO']['out.tgyro.profile']['data']
+profile=map(list,zip(*profile))
+geometry=root['OUTPUTS']['TGYRO']['out.tgyro.geometry.1']['data']
+geometry=map(list,zip(*geometry))
+gyrobohm=root['OUTPUTS']['TGYRO']['out.tgyro.gyrobohm']['data'];
+gyrobohm=map(list,zip(*gyrobohm))
+ni1=profile[1]
+#ni2=profile2[1]
+#ni3=profile3[1]
+ne=profile[2]
+Ti=profile[3]
+Te=profile[4]
+Mach=array(profile[8])
+a=root['INPUTS']['TGYRO']['input.profiles']['rmin'][-1]
+rho=geometry[1]
+# rotation date
+gcs=gyrobohm[5][0:p_tgyro+1];	#get the cs data
+gcs=[float(x) for x in gcs]
+rmaj=array([x*a for x in geometry[9]]);
+w0_t=Mach*gcs/rmaj;
+iplot=0
+if iplot==1:
+    plt.close()
+    figure(211)
+    subplot(2,2,1)
+    plot(rho,Ti,'-bo',linewidth=2)
+    ylabel('$Ti-keV$')
+    subplot(2,2,2)
+    plot(rho,Te,'-bo',linewidth=2)
+    ylabel('$Te-keV$')
+    subplot(2,2,3)
+    plot(rho,w0_t/1.e3,'-bo',linewidth=2)
+    ylabel('$omega-krads^{-1}$')
+    xlabel('$rho$')
+    subplot(2,2,4)
+    plot(rho,ne,'-bo',linewidth=2,label='e')
+    legend(loc=0).draggable(True)
+    xlabel('$rho$')
+    ylabel('$density-cm^{-3}$')
+
+# store the date
+root['SETTINGS']['TEMP']=OMFITtree()
+root['SETTINGS']['TEMP']['Ti']=Ti
+root['SETTINGS']['TEMP']['Te']=Te
+root['SETTINGS']['TEMP']['omega0']=w0_t
+root['SETTINGS']['TEMP']['ne']=ne
+root['SETTINGS']['TEMP']['rho']=rho

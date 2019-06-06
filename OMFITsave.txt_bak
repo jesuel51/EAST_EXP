@@ -1,0 +1,98 @@
+['INPUTS'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['INPUTS']['ONETWO'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['INPUTS']['ONETWO']['inone'] <-:-:-> OMFITnamelist <-:-:-> ./INPUTS/ONETWO/inone <-:-:-> {}
+['INPUTS']['ONETWO']['gfile'] <-:-:-> OMFITeqdsk <-:-:-> ./INPUTS/ONETWO/gfile <-:-:-> {}
+['INPUTS']['ONETWO']['toray.in'] <-:-:-> OMFITnamelist <-:-:-> ./INPUTS/ONETWO/toray.in <-:-:-> {}
+['INPUTS']['ONETWO']['gafit.in'] <-:-:-> OMFITnamelist <-:-:-> ./INPUTS/ONETWO/gafit.in <-:-:-> {}
+['INPUTS']['ONETWO']['job12.pbs'] <-:-:-> OMFITpath <-:-:-> ./INPUTS/ONETWO/job12.pbs <-:-:-> {}
+['INPUTS']['ONETWO']['monitePBS12.sh'] <-:-:-> OMFITpath <-:-:-> ./INPUTS/ONETWO/monitePBS12.sh <-:-:-> {}
+['INPUTS']['ONETWO']['epedfile'] <-:-:-> OMFITpath <-:-:-> ./INPUTS/ONETWO/neTe2.9 <-:-:-> {}
+['INPUTS']['ONETWO']['raw'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['INPUTS']['ONETWO']['raw']['ne'] <-:-:-> OMFITnamelist <-:-:-> ./INPUTS/ONETWO/ExpData/fitnew_ne_065072.05979 <-:-:-> {}
+['INPUTS']['ONETWO']['raw']['Te'] <-:-:-> OMFITnamelist <-:-:-> ./INPUTS/ONETWO/ExpData/fitnew_Te_065072.05979 <-:-:-> {}
+['INPUTS']['ONETWO']['raw']['Ti'] <-:-:-> OMFITnamelist <-:-:-> ./INPUTS/ONETWO/ExpData/fitnew_Ti_065072.05979 <-:-:-> {}
+['INPUTS']['EFIT'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['INPUTS']['EFIT']['rtest'] <-:-:-> OMFITnamelist <-:-:-> ./INPUTS/EFIT/rtest <-:-:-> {}
+['INPUTS']['EFIT']['exeEFIT.sh'] <-:-:-> OMFITpath <-:-:-> ./INPUTS/EFIT/exeEFIT.sh <-:-:-> {}
+['INPUTS']['EFIT']['g0file'] <-:-:-> OMFITeqdsk <-:-:-> ./INPUTS/EFIT/g0.06010 <-:-:-> {}
+['INPUTS']['Profile_gen'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['INPUTS']['Profile_gen']['statefile.nc'] <-:-:-> OMFITnc <-:-:-> ./INPUTS/Profile_gen/statefile.nc <-:-:-> {}
+['INPUTS']['Profile_gen']['gfile'] <-:-:-> OMFITeqdsk <-:-:-> ./INPUTS/Profile_gen/gfile <-:-:-> {}
+['INPUTS']['TGYRO'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['INPUTS']['TGYRO']['input.tgyro'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/input.tgyro <-:-:-> {}
+['INPUTS']['TGYRO']['jobtgyro.pbs'] <-:-:-> OMFITpath <-:-:-> ./INPUTS/TGYRO/job.pbs <-:-:-> {}
+['INPUTS']['TGYRO']['monitePBStgyro.sh'] <-:-:-> OMFITpath <-:-:-> ./INPUTS/TGYRO/monitePBStgyro.sh_p12 <-:-:-> {}
+['INPUTS']['TGYRO']['input.profiles'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/input.profiles <-:-:-> {}
+['INPUTS']['TGYRO']['input.profiles.geo'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/input.profiles.geo <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf1'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf1 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf2'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf2 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf3'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf3 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf4'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf4 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf5'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf5 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf6'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf6 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf7'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf7 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf8'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf8 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf9'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf9 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf10'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf10 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf11'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf11 <-:-:-> {}
+['INPUTS']['TGYRO']['inputtglf']['input.tglf12'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/inputtglf/input.tglf12 <-:-:-> {}
+['INPUTS']['TGYRO']['input.tgyro'] <-:-:-> OMFITgaCode <-:-:-> ./INPUTS/TGYRO/input.tgyro <-:-:-> {}
+['OUTPUTS'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['OUTPUTS']['ONETWO'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['OUTPUTS']['EFIT'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['OUTPUTS']['Profile_gen'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['OUTPUTS']['TGYRO'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SCRIPTS'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SCRIPTS']['ONETWO'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SCRIPTS']['ONETWO']['run12.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/ONETWO/baserun12_v57.py <-:-:-> {}
+['SCRIPTS']['EFIT'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SCRIPTS']['EFIT']['runEFIT.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/EFIT/baserunEFIT.py <-:-:-> {}
+['SCRIPTS']['Profile_gen'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SCRIPTS']['Profile_gen']['runpg.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/Profile_gen/baserunpg.py <-:-:-> {}
+['SCRIPTS']['Profile_gen']['lmtexch.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/Profile_gen/lmtexch.py <-:-:-> {}
+['SCRIPTS']['TGYRO'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SCRIPTS']['TGYRO']['runtgyro.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/TGYRO/baseruntgyro.py <-:-:-> {}
+['SCRIPTS']['proctrl'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SCRIPTS']['proctrl']['proctrl.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/proctrl/proctrl.py <-:-:-> {}
+['SCRIPTS']['assist'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SCRIPTS']['assist']['scalepro.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/assist/scalepro.py <-:-:-> {}
+['SCRIPTS']['assist']['prepdatforcql3d.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/assist/prepdatforcql3d.py <-:-:-> {}
+['SCRIPTS']['assist']['backdatfromcql3d.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/assist/backdatfromcql3d.py <-:-:-> {}
+['SCRIPTS']['assist']['scaletglfinput.py'] <-:-:-> OMFITpythonTask <-:-:-> ./SCRIPTS/assist/scaletglfinput.py <-:-:-> {}
+['PLOTS'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['PLOTS']['ONETWO'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['PLOTS']['ONETWO']['source.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/ONETWO/source.py <-:-:-> {}
+['PLOTS']['ONETWO']['view12.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/ONETWO/view12.py <-:-:-> {}
+['PLOTS']['ONETWO']['addpedpro.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/ONETWO/addpedpro.py <-:-:-> {}
+['PLOTS']['TGYRO'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['PLOTS']['TGYRO']['flux.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/TGYRO/flux.py <-:-:-> {}
+['PLOTS']['TGYRO']['flux_tur_neo.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/TGYRO/flux_tur_neo.py <-:-:-> {}
+['PLOTS']['TGYRO']['profile.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/TGYRO/profile.py <-:-:-> {}
+['PLOTS']['TGYRO']['radiation.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/TGYRO/radiation.py <-:-:-> {}
+['PLOTS']['cmp.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/cmp.py <-:-:-> {}
+['PLOTS']['cmp_grad.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/cmp_grad.py <-:-:-> {}
+['PLOTS']['writefile.py'] <-:-:-> OMFITpythonTask <-:-:-> ./PLOTS/writefile.py <-:-:-> {}
+['GUIS'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['IPS'] <-:-:-> OMFITtree <-:-:->  <-:-:-> {}
+['SETTINGS'] <-:-:-> OMFITnamelist <-:-:-> ./SettingsNamelist.txt <-:-:-> {}
+['SETTINGS']['SETUP']['workDir'] <-:-:-> OMFITexpression <-:-:-> _"OMFITworkDir(root,'')" <-:-:-> {}
+['SETTINGS']['EXPERIMENT']['shot'] <-:-:-> OMFITexpression <-:-:-> _"try:\n    return_variable=OMFITmodules[-2]['SETTINGS']['EXPERIMENT']['shot']\nexcept:\n    return_variable=MainSettings['EXPERIMENT']['shot']\n" <-:-:-> {}
+['SETTINGS']['EXPERIMENT']['time'] <-:-:-> OMFITexpression <-:-:-> _"try:\n    return_variable=OMFITmodules[-2]['SETTINGS']['EXPERIMENT']['time']\nexcept:\n    return_variable=MainSettings['EXPERIMENT']['time']\n" <-:-:-> {}
+['SETTINGS']['EXPERIMENT']['device'] <-:-:-> OMFITexpression <-:-:-> _"try:\n    return_variable=OMFITmodules[-2]['SETTINGS']['EXPERIMENT']['device']\nexcept:\n    return_variable=MainSettings['EXPERIMENT']['device']\n" <-:-:-> {}
+['SETTINGS']['EXPERIMENT']['shots'] <-:-:-> OMFITexpression <-:-:-> _"try:\n    return_variable=OMFITmodules[-2]['SETTINGS']['EXPERIMENT']['shots']\nexcept:\n    return_variable=MainSettings['EXPERIMENT']['shots']\n" <-:-:-> {}
+['SETTINGS']['EXPERIMENT']['times'] <-:-:-> OMFITexpression <-:-:-> _"try:\n    return_variable=OMFITmodules[-2]['SETTINGS']['EXPERIMENT']['times']\nexcept:\n    return_variable=MainSettings['EXPERIMENT']['times']\n" <-:-:-> {}
+['SETTINGS']['EXPERIMENT']['runid'] <-:-:-> OMFITexpression <-:-:-> _"try:\n    return_variable=OMFITmodules[-2]['SETTINGS']['EXPERIMENT']['runid']\nexcept:\n    return_variable=MainSettings['EXPERIMENT']['runid']\n" <-:-:-> {}
+['help'] <-:-:-> OMFITascii <-:-:-> ./help.txt <-:-:-> {}
+['MainSettings'] <-:-:-> OMFITmainSettings <-:-:-> ./MainSettingsNamelist.txt <-:-:-> {}
+['MainSettings']['SETUP']['workDir'] <-:-:-> OMFITexpression <-:-:-> _"OMFITcwd+os.sep+'runs'+os.sep" <-:-:-> {}
+['MainSettings']['SERVER']['GA_username'] <-:-:-> OMFITexpression <-:-:-> _"os.environ['USER']" <-:-:-> {}
+['MainSettings']['SERVER']['PPPL_username'] <-:-:-> OMFITexpression <-:-:-> _"os.environ['USER']" <-:-:-> {}
+['MainSettings']['SERVER']['NERSC_username'] <-:-:-> OMFITexpression <-:-:-> _"os.environ['USER']" <-:-:-> {}
+['MainSettings']['SERVER']['ASIPP_username'] <-:-:-> OMFITexpression <-:-:-> _"os.environ['USER']" <-:-:-> {}
+['MainSettings']['SERVER']['UCSD_username'] <-:-:-> OMFITexpression <-:-:-> _"os.environ['USER']" <-:-:-> {}
+['MainSettings']['SERVER']['ITM_username'] <-:-:-> OMFITexpression <-:-:-> _"os.environ['USER']" <-:-:-> {}
+['MainSettings']['SERVER']['MIT_username'] <-:-:-> OMFITexpression <-:-:-> _"os.environ['USER']" <-:-:-> {}
+['MainSettings']['SERVER']['ITER_username'] <-:-:-> OMFITexpression <-:-:-> _"os.environ['USER']" <-:-:-> {}
+['MainSettings']['SERVER']['localhost']['workDir'] <-:-:-> OMFITexpression <-:-:-> _"OMFITcwd+os.sep+'remote_runs'+os.sep" <-:-:-> {}
+['MainSettings']['SERVER']['venus']['workDir'] <-:-:-> OMFITexpression <-:-:-> _"username=SERVER[parseBuildLocation(parentName)[-1]]['server'].split('@')[0]\nreturn_variable='/scratch/'+username+'/OMFIT/runs/'" <-:-:-> {}

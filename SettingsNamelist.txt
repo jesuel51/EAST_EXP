@@ -1,0 +1,46 @@
+ &PHYSICS
+ p_tgyro = 12
+ lmtexch = 0.0
+ iSS = 0
+ iruncql3d = 1
+ TeScale = 1.0
+ neScale = 1.0
+ TiScale = 1.0
+ /
+ &SETUP
+ case = '0'
+ igfile = 0
+ workDir = 
+ executable =
+ TGLFinputscale={} 
+ pbs_queue = 'medium'
+ num_nodes = 1
+ num_cores = 12
+ wall_time = 24:00:00
+ /
+ &PLOTS
+ /
+ &EXPERIMENT
+ shot = 
+ time = 
+ device = 
+ shots = 
+ times = 
+ runid = 
+ /
+ &REMOTE_SETUP
+ serverPicker = 'kuafu'
+ workDir = '/cluster-scratch/jianx/OMFIT/runs/EAST_EXP/0'
+ server = 'jianx@iris'
+ tunnel = ''
+ /
+ &DEPENDENCIES
+ fileout = '/home/jianx/deploy/tgyrorun/filename.txt'
+ /
+ &MODULE
+ ID = 'EAST_EXP'
+ edited_by = 'jianx'
+ date = '24 Nov 2016  14:50'
+ version = u''
+ contact = '' 'xiangjian@hust.edu.cn'
+ /

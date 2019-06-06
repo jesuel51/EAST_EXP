@@ -1,0 +1,130 @@
+# plot the experimental profile and TGYRO output profile
+root['PLOTS']['TGYRO']['profile.py'].run()
+# define a function that can find the index of the elecments which is satisfied an condition in an array
+def larger(para,arr):
+    ind=[]
+    count=0
+    for item in arr:
+        if item > para:
+            ind.append(count)
+        count=count+1
+    return ind
+# the scale paramters
+TeScale=root['SETTINGS']['PHYSICS']['TeScale']
+TiScale=root['SETTINGS']['PHYSICS']['TiScale']
+neScale=root['SETTINGS']['PHYSICS']['neScale']
+inputpro=root['INPUTS']['TGYRO']['input.profiles']
+#ne channel
+#ne_exp=root['INPUTS']['ONETWO']['inone']['NAMELIS1']['ENEIN']
+ne_exp=inputpro['ne']
+rho_exp=inputpro['rho']
+rho_ne_exp_fit=root['INPUTS']['ONETWO']['raw']['ne']['namelist']['fit_rho']
+ne_exp_fit=root['INPUTS']['ONETWO']['raw']['ne']['namelist']['fit_data']
+ne_exp_raw=root['INPUTS']['ONETWO']['raw']['ne']['namelist']['raw_data']
+ne_exp_fit=ne_exp_fit*neScale
+ne_exp_raw=ne_exp_raw*neScale
+rho_ne_exp_raw=root['INPUTS']['ONETWO']['raw']['ne']['namelist']['raw_rho']
+#rho_ne_exp_raw_exclude=root['INPUTS']['ONETWO']['raw']['ne']['namelist']['excluded_x']
+#ne_exp_raw_exclude=root['INPUTS']['ONETWO']['raw']['ne']['namelist']['excluded_y']
+#======================================================================
+# Te channel
+#Te_exp=root['INPUTS']['ONETWO']['inone']['NAMELIS1']['TEIN']
+Te_exp=inputpro['Te']
+rho_Te_exp_fit=root['INPUTS']['ONETWO']['raw']['Te']['namelist']['fit_rho']
+Te_exp_fit=root['INPUTS']['ONETWO']['raw']['Te']['namelist']['fit_data']
+#Te_exp=root['INPUTS']['TGYRO']['input.profiles']['Te']
+Te_exp_raw=root['INPUTS']['ONETWO']['raw']['Te']['namelist']['raw_data']
+rho_Te_exp_raw=root['INPUTS']['ONETWO']['raw']['Te']['namelist']['raw_rho']
+# ============================================================================
+# Ti Channel
+#Ti_exp=root['INPUTS']['ONETWO']['inone']['NAMELIS1']['TIIN']
+Ti_exp=inputpro['Ti_1']
+rho_Ti_exp_fit=root['INPUTS']['ONETWO']['raw']['Ti']['namelist']['fit_rho']
+Ti_exp_fit=root['INPUTS']['ONETWO']['raw']['Ti']['namelist']['fit_data']
+Ti_exp=root['INPUTS']['TGYRO']['input.profiles']['Ti_1']
+Ti_exp_raw=root['INPUTS']['ONETWO']['raw']['Ti']['namelist']['raw_data']
+rho_Ti_exp_raw=root['INPUTS']['ONETWO']['raw']['Ti']['namelist']['raw_rho']
+rho_Ti_exp_fit_12=root['INPUTS']['ONETWO']['inone']['NAMELIS1']['RTIIN']
+Ti_exp_fit_12=root['INPUTS']['ONETWO']['inone']['NAMELIS1']['TIIN']
+#======================================================================
+## omega0 channel
+omega0_exp=inputpro['omega0']
+######################################################################
+ne_tgyro=root['SETTINGS']['TEMP']['ne']
+Te_tgyro=root['SETTINGS']['TEMP']['Te']
+Ti_tgyro=root['SETTINGS']['TEMP']['Ti']
+omega0_tgyro=root['SETTINGS']['TEMP']['omega0']
+rho_tgyro=root['SETTINGS']['TEMP']['rho']
+ipltraw=0;
+#
+fs1=24
+fs2=20
+figure('Profile Comparison',figsize=[10,10])
+# Te profile
+T_max=ceil(max([Te_tgyro[0],Ti_tgyro[0],Ti_exp[0],Te_exp[0]]))
+subplot(2,2,1)
+#plot(rho_Te_exp_fit,array(Te_exp_fit),'-b',linewidth=2,label='exp-fit')
+plot(rho_exp,Te_exp,'-b',linewidth=2,label='exp-fit')
+if ipltraw==1:
+    plot(rho_Te_exp_raw,array(Te_exp_raw),'b*',markersize=12,linewidth=2,label='exp-raw')
+#plot(rho_Te_exp_raw_exclude,array(Te_exp_raw_exclude),'bd',linewidth=2,label='exp-raw_excluded')
+plot(rho_tgyro,Te_tgyro,'-ro',linewidth=2,label='simu')
+xticks(fontsize=fs2,family='serif')
+yticks(fontsize=fs2,family='serif')
+title('Te',fontsize=fs1,family='serif')
+ylim([0,T_max])
+ylabel('$keV$',fontsize=fs2,family='serif')
+iuseTeasTi=1  # decide whether to use the Te data outside rho=0.6 as Te data
+# Ti profile
+subplot(2,2,2)
+#plot(rho_Ti_exp_fit,array(Ti_exp_fit),'-b',linewidth=2,label='exp-fit')
+if ipltraw ==1 :
+    plot(rho_Ti_exp_raw,array(Ti_exp_raw),'b*',markersize=12,linewidth=2,label='exp-raw')
+if iuseTeasTi==1:
+    ind=larger(0.6,rho_Te_exp_raw)
+    indfit=larger(0.6,rho_Te_exp_fit)
+    if ipltraw ==1:
+        plot(rho_Te_exp_raw[ind],array(Te_exp_raw[ind]),'bd',markersize=12,linewidth=2,label='Te-raw')
+#    plot(rho_Ti_exp_fit[0:indfit[0]],array(Ti_exp_fit[0:indfit[0]]),'-b',linewidth=2,label='exp-fit')
+#    plot(rho_Ti_exp_fit_12,Ti_exp_fit_12,'-b',linewidth=2,label='exp-fit')
+    plot(rho_exp,Ti_exp,'-b',linewidth=2,label='exp-fit')
+else:
+#    plot(rho_Ti_exp_fit,array(Ti_exp_fit),'-b',linewidth=2,label='exp-fit')
+    plot(rho_Ti_exp_fit_12,Ti_exp_fit_12,'-b',linewidth=2,label='exp-fit')
+#plot(rho_Ti_exp_raw_exclude,array(Ti_exp_raw_exclude)/1.e13,'-bo',linewidth=2,label='exp-raw_excluded')
+plot(rho_tgyro,Ti_tgyro,'-ro',linewidth=2,label='simu')
+xticks(fontsize=fs2,family='serif')
+yticks(fontsize=fs2,family='serif')
+title('Ti',fontsize=fs1,family='serif')
+ylim([0,T_max])
+#xlabel('$rho$',fontsize=fs2,family='serif')
+ylabel('$keV$',fontsize=fs2,family='serif')
+legend(loc=0,fontsize=fs2).draggable(True)
+# density
+subplot(2,2,3)
+#plot(rho_ne_exp_fit,array(ne_exp_fit)/1.e13,'-b',linewidth=2,label='exp-fit')
+plot(rho_exp,ne_exp,'-b',linewidth=2,label='exp-fit')
+if ipltraw==1:
+    plot(rho_ne_exp_raw,array(ne_exp_raw)/1.e13,'b*',markersize=12,linewidth=2,label='exp-raw')
+#plot(rho_ne_exp_raw_exclude,array(ne_exp_raw_exclude),'bd',linewidth=2,label='exp-raw_excluded')
+plot(rho_tgyro,array(ne_tgyro)/1.e13,'-ro',linewidth=2,label='simu')
+xticks(fontsize=fs2,family='serif')
+yticks(fontsize=fs2,family='serif')
+title('ne',fontsize=fs1,family='serif')
+ylim([0,ceil(1.2*max(ne_exp[0]/1.e13,ne_tgyro[0]/1.e13))])
+xlim([0,1])
+xlabel('$rho$',fontsize=fs2,family='serif')
+ylabel('$10^{13}cm^{-3}$',fontsize=fs2,family='serif')
+#legend(loc=0,fontsize=fs2).draggable(True)
+T_max=ceil(max([Te_tgyro[0],Ti_tgyro[0],Ti_exp[0],Te_exp[0]]))/1.e3
+# rotation
+subplot(2,2,4)
+plot(rho_exp,omega0_exp/1.e3,'-b',linewidth=2)
+plot(rho_tgyro,omega0_tgyro/1.e3,'-ro',linewidth=2)
+xticks(fontsize=fs2,family='serif')
+yticks(fontsize=fs2,family='serif')
+title('$\omega0$',fontsize=fs1,family='serif')
+#ylim([0,ceil(1.2*max(omega0_exp[0],omega0_tgyro[0]))])
+xlim([0,1])
+xlabel('$rho$',fontsize=fs2,family='serif')
+ylabel('$krads^{-1}$',fontsize=fs2,family='serif')
